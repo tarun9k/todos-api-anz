@@ -1,0 +1,60 @@
+name: Sample Java Todos API Docker Build workflow 
+
+on: push
+
+jobs:
+  maven-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      #1. Check out the code
+      #2. Setup Up JDK
+      #3. Build using Maven
+      #4. Unit Test
+
+      - name: Check out the code
+        uses: actions/checkout@v3
+
+      - name: Setup Up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      
+      - name: Build using Maven
+        run: mvn clean install
+
+      - name: Unit Test
+        run: mvn test
+  ------
+
+name: Sample Java Todos API Docker Build workflow 
+
+on: 
+  push:
+  workflow_dispatch:
+
+jobs:
+  maven-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      #1. Check out the code
+      #2. Setup Up JDK
+      #3. Build using Maven
+      #4. Unit Test
+
+      - name: Check out the code
+        uses: actions/checkout@v3
+
+      - name: Setup Up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'adopt'
+      
+      - name: Build using Maven
+        run: mvn clean install
+
+      - name: Unit Test
+        run: mvn test
